@@ -1,15 +1,8 @@
-
-
-
-
-
-
-
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 
 export default function DetailsScreen({ route }) {
-  const { article } = route.params; // Получаем переданные данные
+  const { article } = route.params; 
 
   return (
     <ScrollView style={styles.container}>
