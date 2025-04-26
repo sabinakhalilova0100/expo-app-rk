@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import { View, Text, FlatList, ActivityIndicator, StyleSheet, TouchableOpacity, Animated } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';  // Импорт иконок
+import Ionicons from 'react-native-vector-icons/Ionicons';  
 import { fetchNews } from '../api/newsApi';
-import { FavoritesContext } from '../context/FavoritesContext'; // <-- подключаем контекст
+import { FavoritesContext } from '../context/FavoritesContext'; 
 
 export default function HomeScreen({ navigation }) {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const { addToFavorites, removeFromFavorites, favorites } = useContext(FavoritesContext); // <-- достаем функции добавления и удаления
+  const { addToFavorites, removeFromFavorites, favorites } = useContext(FavoritesContext); 
 
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
@@ -57,7 +57,7 @@ export default function HomeScreen({ navigation }) {
     );
   }
 
-  // Проверяем, добавлена ли статья в избранное
+
   const isFavorite = (article) => favorites.some(fav => fav.id === article.id);
 
   return (
@@ -72,7 +72,7 @@ export default function HomeScreen({ navigation }) {
           <View style={styles.item}>
             <Text style={styles.title}>{item.title}</Text>
             <TouchableOpacity
-              onPress={() => isFavorite(item) ? removeFromFavorites(item) : addToFavorites(item)} // Меняем на добавление/удаление
+              onPress={() => isFavorite(item) ? removeFromFavorites(item) : addToFavorites(item)} 
             >
               <Ionicons
                 name={isFavorite(item) ? 'heart' : 'heart-outline'}
@@ -109,8 +109,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     backgroundColor: '#fff',
     borderRadius: 10,
-    elevation: 3, // Android тень
-    shadowColor: '#000', // iOS тень
+    elevation: 3, 
+    shadowColor: '#000', 
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
@@ -124,6 +124,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     marginBottom: 5,
-    flex: 1, // Чтобы текст не выходил за пределы
+    flex: 1, 
   },
 });

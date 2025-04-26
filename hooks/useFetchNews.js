@@ -1,4 +1,4 @@
-// hooks/useFetchNews.js
+
 import { useState, useEffect } from 'react';
 import { fetchNews } from '../api/newsApi';
 

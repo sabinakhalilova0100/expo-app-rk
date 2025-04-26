@@ -1,4 +1,4 @@
-// api/newsApi.js
+
 export async function fetchNews() {
     const response = await fetch('https://dummyjson.com/posts');
     if (!response.ok) {
@@ -6,7 +6,7 @@ export async function fetchNews() {
       throw new Error('Failed to fetch news');
     }
     const data = await response.json();
-    return data.posts; // <-- ВАЖНО! тут нужно брать именно data.posts
+    return data.posts; 
   }
 
 
